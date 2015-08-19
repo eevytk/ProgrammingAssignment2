@@ -36,3 +36,19 @@ cacheSolve <- function(x, ...) {
     x$setsolve(m)
     m
 }
+
+## test functions - returns inverted matrix
+testCacheMatrix <- function() {
+    x <- matrix(NA, 4, 4)
+    x[,1] <- c(1:4)
+    x[,2] <- c(0,1,2,0)
+    x[,3] <- c(4:1)
+    x[,4] <- c(0,4,3,0)
+    xx <- makeCacheMatrix(x)
+    message("running cacheSolve for the first time...")
+    xxx <- cacheSolve(xx)
+    print.default(xxx)
+    message("running cacheSolve for the second time....")
+    xxx <- cacheSolve(xx)
+    xxx
+}
